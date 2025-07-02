@@ -84,8 +84,8 @@
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   padding: 1rem;
 }
@@ -121,6 +121,25 @@
 }
 
 .btn-wa:hover {
+  background-color: #0077c2;
+}
+
+.add-umkm-button {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.btn-add {
+  background-color: #0092d1;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
   background-color: #0077c2;
 }
 

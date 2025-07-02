@@ -1,5 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 //penyimpanan config
 const firebaseConfig = {
@@ -9,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "umkm-desajerukan.firebasestorage.app",
   messagingSenderId: "468698300794",
   appId: "1:468698300794:web:a3f2399b3243f2028796c3",
-  measurementId: "G-62R2SR7DXS"
+  measurementId: "G-62R2SR7DXS",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -25,23 +30,23 @@ function toggleSearch() {
 
 //fungsi tambah data
 function tambahUMKM(nama, kategori, kontak) {
-    const umkmRef = ref(database, 'umkm');
-    push(umkmRef, {nama, kategori, kontak});
+  const umkmRef = ref(database, "umkm");
+  push(umkmRef, { nama, kategori, kontak });
 }
 
-//fungsi tampilkan data 
+//fungsi tampilkan data
 function tampilkanUMKM() {
-    const umkmRef = ref(database, 'umkm')
-    const umkmList = document.getElementById('umkmList');
-  umkmList.innerHTML = '';
+  const umkmRef = ref(database, "umkm");
+  const umkmList = document.getElementById("umkmList");
+  umkmList.innerHTML = "";
 
- onValue(umkmRef, (snapshot) => {
-    umkmList.innerHTML = '';
+  onValue(umkmRef, (snapshot) => {
+    umkmList.innerHTML = "";
     const data = snapshot.val();
 
     if (data) {
       Object.entries(data).forEach(([key, umkm]) => {
-        const card = document.createElement('div');
+        const card = document.createElement("div");
         card.innerHTML = `
           <h3>${umkm.nama}</h3>
           <p>Kategori: ${umkm.kategori}</p>
@@ -51,7 +56,7 @@ function tampilkanUMKM() {
         umkmList.appendChild(card);
       });
     } else {
-      umkmList.innerHTML = '<p>Belum ada UMKM</p>';
+      umkmList.innerHTML = "<p>Belum ada UMKM</p>";
     }
   });
 }
@@ -60,17 +65,22 @@ function tampilkanUMKM() {
 tampilkanUMKM();
 
 // Event Tambah Data
-document.getElementById('btnTambah').addEventListener('click', () => {
-  const nama = document.getElementById('namaUMKM').value;
-  const kategori = document.getElementById('kategoriUMKM').value;
-  const kontak = document.getElementById('kontakUMKM').value;
+document.getElementById("btnTambah").addEventListener("click", () => {
+  const nama = document.getElementById("namaUMKM").value;
+  const kategori = document.getElementById("kategoriUMKM").value;
+  const kontak = document.getElementById("kontakUMKM").value;
 
   if (nama && kategori && kontak) {
     tambahUMKM(nama, kategori, kontak);
-    document.getElementById('namaUMKM').value = '';
-    document.getElementById('kategoriUMKM').value = '';
-    document.getElementById('kontakUMKM').value = '';
+    document.getElementById("namaUMKM").value = "";
+    document.getElementById("kategoriUMKM").value = "";
+    document.getElementById("kontakUMKM").value = "";
   } else {
-    alert('Isi semua kolom dulu');
+    alert("Isi semua kolom dulu");
   }
+});
+document.getElementById("umkmForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Data berhasil ditambahkan! (Integrasi Firebase nanti disini)");
+  document.getElementById("umkmForm").reset();
 });
