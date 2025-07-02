@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMKM Desa Jerukan</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-content">
+        <div class="logo">
+          <img src="image/logo-byl.png" alt="Logo" class="logo-img" />
+        </div>
+
+        <div class="nav-title">
+          <h1>UMKM Desa Jerukan</h1>
+        </div>
+
+        <div class="right-icons">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari UMKM..."
+            class="search-input"
+          />
+          <div class="search-icon" onclick="toggleSearch()">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Filter (Optional) -->
+    <div class="filter-bar">
+      <select>
+        <option value="">Semua Kategori</option>
+        <option value="makanan">Makanan</option>
+        <option value="kerajinan">Kerajinan</option>
+        <option value="jasa">Jasa</option>
+      </select>
+    </div>
+
+    <!-- Grid UMKM -->
+    <main class="grid-container">
+      <div class="umkm-card">
+        <img src="https://via.placeholder.com/200" alt="UMKM 1" />
+        <h2>Nama UMKM</h2>
+        <p>Deskripsi singkat produk atau jasa UMKM.</p>
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn-wa"
+          >Hubungi</a
+        >
+      </div>
+
+      <div class="umkm-card">
+        <img src="https://via.placeholder.com/200" alt="UMKM 2" />
+        <h2>Nama UMKM</h2>
+        <p>Deskripsi singkat produk atau jasa UMKM.</p>
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn-wa"
+          >Hubungi</a
+        >
+      </div>
+
+      <!-- Tambahin Card Lainnya -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 UMKM Desa Jerukan | Terhubung dengan Website Desa</p>
+    </footer>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
+
+
+
